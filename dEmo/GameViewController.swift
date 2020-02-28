@@ -45,7 +45,7 @@ class GameViewController: UIViewController {
     
     var score = 0
     var timer:Timer?
-    var seconds = 60
+    var seconds = 0
     var prevValue = 0
     
     func updateScoreLabel() {

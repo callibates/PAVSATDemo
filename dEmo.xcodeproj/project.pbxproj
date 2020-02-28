@@ -15,6 +15,7 @@
 		2E5BAB0A23A4A06800CA9A41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E5BAB0823A4A06800CA9A41 /* LaunchScreen.storyboard */; };
 		2E5BAB1223A4A28B00CA9A41 /* HVD_Comic_Serif_Pro.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2E5BAB1123A4A28B00CA9A41 /* HVD_Comic_Serif_Pro.otf */; };
 		2E5BAB1623A4AF1D00CA9A41 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5BAB1523A4AF1D00CA9A41 /* String.swift */; };
+		2E5BAB1823AF1F9C00CA9A41 /* DIceGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5BAB1723AF1F9C00CA9A41 /* DIceGameViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		2E5BAB0B23A4A06800CA9A41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2E5BAB1123A4A28B00CA9A41 /* HVD_Comic_Serif_Pro.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = HVD_Comic_Serif_Pro.otf; path = "../../../../HVD-Comic-Serif-Pro/HVD_Comic_Serif_Pro.otf"; sourceTree = "<group>"; };
 		2E5BAB1523A4AF1D00CA9A41 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		2E5BAB1723AF1F9C00CA9A41 /* DIceGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIceGameViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				2E5BAAFD23A4A06700CA9A41 /* AppDelegate.swift */,
 				2E5BAAFF23A4A06700CA9A41 /* SceneDelegate.swift */,
 				2E5BAB0123A4A06700CA9A41 /* GameViewController.swift */,
+				2E5BAB1723AF1F9C00CA9A41 /* DIceGameViewController.swift */,
 				2E5BAB0323A4A06700CA9A41 /* Main.storyboard */,
 				2E5BAB0623A4A06800CA9A41 /* Assets.xcassets */,
 				2E5BAB0823A4A06800CA9A41 /* LaunchScreen.storyboard */,
@@ -147,6 +150,7 @@
 			files = (
 				2E5BAB0223A4A06700CA9A41 /* GameViewController.swift in Sources */,
 				2E5BAAFE23A4A06700CA9A41 /* AppDelegate.swift in Sources */,
+				2E5BAB1823AF1F9C00CA9A41 /* DIceGameViewController.swift in Sources */,
 				2E5BAB1623A4AF1D00CA9A41 /* String.swift in Sources */,
 				2E5BAB0023A4A06700CA9A41 /* SceneDelegate.swift in Sources */,
 			);
