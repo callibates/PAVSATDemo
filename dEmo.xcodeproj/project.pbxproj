@@ -13,9 +13,9 @@
 		2E5BAB0523A4A06700CA9A41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E5BAB0323A4A06700CA9A41 /* Main.storyboard */; };
 		2E5BAB0723A4A06800CA9A41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E5BAB0623A4A06800CA9A41 /* Assets.xcassets */; };
 		2E5BAB0A23A4A06800CA9A41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E5BAB0823A4A06800CA9A41 /* LaunchScreen.storyboard */; };
-		2E5BAB1223A4A28B00CA9A41 /* HVD_Comic_Serif_Pro.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2E5BAB1123A4A28B00CA9A41 /* HVD_Comic_Serif_Pro.otf */; };
 		2E5BAB1623A4AF1D00CA9A41 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5BAB1523A4AF1D00CA9A41 /* String.swift */; };
 		2E5BAB1823AF1F9C00CA9A41 /* DIceGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5BAB1723AF1F9C00CA9A41 /* DIceGameViewController.swift */; };
+		F72F5CDA2414955C00BAA804 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72F5CD92414955C00BAA804 /* SettingsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,9 +27,9 @@
 		2E5BAB0623A4A06800CA9A41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2E5BAB0923A4A06800CA9A41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2E5BAB0B23A4A06800CA9A41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2E5BAB1123A4A28B00CA9A41 /* HVD_Comic_Serif_Pro.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = HVD_Comic_Serif_Pro.otf; path = "../../../../HVD-Comic-Serif-Pro/HVD_Comic_Serif_Pro.otf"; sourceTree = "<group>"; };
 		2E5BAB1523A4AF1D00CA9A41 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		2E5BAB1723AF1F9C00CA9A41 /* DIceGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIceGameViewController.swift; sourceTree = "<group>"; };
+		F72F5CD92414955C00BAA804 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,8 +70,8 @@
 				2E5BAB0623A4A06800CA9A41 /* Assets.xcassets */,
 				2E5BAB0823A4A06800CA9A41 /* LaunchScreen.storyboard */,
 				2E5BAB0B23A4A06800CA9A41 /* Info.plist */,
-				2E5BAB1123A4A28B00CA9A41 /* HVD_Comic_Serif_Pro.otf */,
 				2E5BAB1523A4AF1D00CA9A41 /* String.swift */,
+				F72F5CD92414955C00BAA804 /* SettingsTableViewController.swift */,
 			);
 			path = dEmo;
 			sourceTree = "<group>";
@@ -136,7 +136,6 @@
 			files = (
 				2E5BAB0A23A4A06800CA9A41 /* LaunchScreen.storyboard in Resources */,
 				2E5BAB0723A4A06800CA9A41 /* Assets.xcassets in Resources */,
-				2E5BAB1223A4A28B00CA9A41 /* HVD_Comic_Serif_Pro.otf in Resources */,
 				2E5BAB0523A4A06700CA9A41 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -150,6 +149,7 @@
 			files = (
 				2E5BAB0223A4A06700CA9A41 /* GameViewController.swift in Sources */,
 				2E5BAAFE23A4A06700CA9A41 /* AppDelegate.swift in Sources */,
+				F72F5CDA2414955C00BAA804 /* SettingsTableViewController.swift in Sources */,
 				2E5BAB1823AF1F9C00CA9A41 /* DIceGameViewController.swift in Sources */,
 				2E5BAB1623A4AF1D00CA9A41 /* String.swift in Sources */,
 				2E5BAB0023A4A06700CA9A41 /* SceneDelegate.swift in Sources */,
@@ -297,15 +297,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9JQAAS5GM4;
 				INFOPLIST_FILE = dEmo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = callibates.dEmo;
+				PRODUCT_BUNDLE_IDENTIFIER = PATSAVDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -314,15 +316,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9JQAAS5GM4;
 				INFOPLIST_FILE = dEmo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = callibates.dEmo;
+				PRODUCT_BUNDLE_IDENTIFIER = PATSAVDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};

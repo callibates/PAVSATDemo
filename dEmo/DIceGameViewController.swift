@@ -9,53 +9,113 @@
 import UIKit
 
 class DiceGameViewController: UIViewController {
-    @IBOutlet weak var scoreLabel:UILabel?
-    @IBOutlet weak var timeLabel:UILabel?
-    @IBOutlet weak var numberLabel:UILabel?
-    @IBOutlet weak var inputField:UITextField?
-    @IBOutlet weak var displayImage:UIImageView?
+    @IBOutlet weak var displayImage:UIImageView!
+    var settingsViewController:SettingsTableViewController!
     
-    @IBAction func buttonWasClicked(_ sender: UIButton)
-    {
-        print(sender.title(for: .normal)!)
-        
+    override func viewDidLoad() {
+
+        super.viewDidLoad()
+        startGame()
+    }
+    
+    func startGame(){
         if timer == nil {
             timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
                 if self.seconds <= 0 {
+                    if(self.turnCount >= self.numDisplays){
+                        self.finishGame()
+                    }
                     print("Time is up!")
                     if self.displayingValue {
-                        print("Displaying a blank")
                         self.displayBlank()
                         self.displayingValue = false
                         self.seconds = self.blankTime
                     }else{
-                        print("displaying a value")
+                        self.evaluate()
+                        self.prevValue = self.currValue
                         self.displayValue()
+                        self.sum = self.prevValue + self.currValue
                         self.seconds = self.displayTime
                         self.displayingValue = true
                     }
                 } else {
                     self.seconds -= 0.1
-                    print("Counting down "+String(self.seconds))
                 }
             }
         }
     }
     
+    func evaluate(){
+        self.timeCount += self.blankTime
+        if(self.answer == self.sum){ //correct guess
+            self.numCorrect += 1
+            if (self.numWrong > 0){
+                self.numWrong = 0
+                self.numReversals += 1
+            }
+            if(self.shouldCount){
+                self.score += 1
+            }
+            if(self.numReversals == 4){
+                self.shouldCount = true
+                self.score = 0
+                self.turnCount = 0
+                self.timeCount = 0.0
+            }
+            if(self.numCorrect == 2){
+                self.blankTime -= 0.2
+            }
+        }
+        else{ //incorrect guess
+            self.numCorrect = 0
+            if(self.numWrong == 0){
+                self.numReversals += 1
+            }
+            if(self.numReversals == 4){
+                self.shouldCount = true
+                self.score = 0
+                self.turnCount = 0
+                self.timeCount = 0.0
+            }
+            self.numWrong += 1
+            self.blankTime += 0.2
+        }
+        self.answer = 0
+    }
+    
+    @IBAction func buttonWasClicked(_ sender: UIButton)
+    {
+        let numStr = sender.title(for: .normal)!
+        self.answer = Int(numStr) ?? 0
+    }
+    
+    @IBAction func onSettingsButtonClicked(_ sender: UIButton)
+    {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "Settings") as! SettingsTableViewController
+        nextViewController.modalPresentationStyle = .fullScreen
+        self.present(nextViewController, animated:true, completion:nil)
+    }
+    
     func displayBlank(){
         DispatchQueue.main.async{
-            self.displayImage?.image = UIImage(contentsOfFile: "NoDice")
+            self.displayImage?.image = UIImage(named: "NoDice")
             self.displayImage?.setNeedsDisplay()
         }
     }
     
     func displayValue(){
+        let num = getRandomNumber()
+        self.currValue = num
+        let name = String(num)+"Dice"
+        self.turnCount += 1
         DispatchQueue.main.async{
-            self.displayImage?.image = UIImage(contentsOfFile: "1Dice")
+            self.displayImage?.image = UIImage(named: name)
             self.displayImage?.setNeedsDisplay()
         }
     }
     
+    var gameMode = "Dice"
     var score = 0
     var blankTime = 3.0
     var displayingValue = false
@@ -63,6 +123,16 @@ class DiceGameViewController: UIViewController {
     var timer:Timer?
     var seconds = 2.0
     var prevValue = 0
+    var currValue = 0
+    var sum = 0
+    var turnCount = 0
+    var numReversals = 0
+    var numWrong = 0
+    var numCorrect = 0
+    var shouldCount = false
+    var answer = 0
+    var timeCount = 0.0
+    let numDisplays = 3
     
     let dice1 = UIImage(named: "1Dice")
     let dice2 = UIImage(named: "2Dice")
@@ -79,24 +149,15 @@ class DiceGameViewController: UIViewController {
     {
         timer?.invalidate()
         timer = nil
-        let alert = UIAlertController(title: "Time's Up!", message: "Your time is up! You got a score of \(score) points. Awesome!", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Time's Up!", message: "Your time is up! You got a score of \(score) points and a mean time of \(self.timeCount / Double(self.numDisplays)). Awesome!", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK, start new game", style: .default, handler: nil))
 
         self.present(alert, animated: true, completion: nil)
-        score = 0
-        seconds = 60
-        
-    }
-
-    override func viewDidLoad()
-    {
-        super.viewDidLoad()
         
     }
     
     func getRandomNumber()-> Int{
-        let num = Int.random(in: 0...9)
+        let num = Int.random(in: 1...6)
         return num
     }
 }
-
