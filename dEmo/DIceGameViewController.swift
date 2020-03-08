@@ -10,7 +10,23 @@ import UIKit
 
 class DiceGameViewController: UIViewController {
     @IBOutlet weak var displayImage:UIImageView!
+    
     var settingsViewController:SettingsTableViewController!
+    
+    @IBOutlet weak var button2:UIButton!
+    @IBOutlet weak var button3:UIButton!
+    @IBOutlet weak var button4:UIButton!
+    @IBOutlet weak var button5:UIButton!
+    @IBOutlet weak var button6:UIButton!
+    @IBOutlet weak var button7:UIButton!
+    @IBOutlet weak var button8:UIButton!
+    @IBOutlet weak var button9:UIButton!
+    @IBOutlet weak var button10:UIButton!
+    @IBOutlet weak var button11:UIButton!
+    @IBOutlet weak var button12:UIButton!
+    
+    let symbolsVals = [1, 5, 10, 50, 100, 6, 11, 55, 150, 101, 105]
+    
     
     override func viewDidLoad() {
 
@@ -19,6 +35,50 @@ class DiceGameViewController: UIViewController {
     }
     
     func startGame(){
+        if (self.gameMode == "Roman"){
+            self.button2.setImage(UIImage(named: "1Roman"), for: .normal)
+            self.button2.setTitle("1", for: .normal)
+            self.button3.setImage(UIImage(named: "5Roman"), for: .normal)
+            self.button2.setTitle("5", for: .normal)
+            self.button4.setImage(UIImage(named: "10Roman"), for: .normal)
+            self.button2.setTitle("10", for: .normal)
+            self.button5.setImage(UIImage(named: "50Roman"), for: .normal)
+            self.button2.setTitle("50", for: .normal)
+            self.button6.setImage(UIImage(named: "100Roman"), for: .normal)
+            self.button2.setTitle("100", for: .normal)
+            self.button7.setImage(UIImage(named: "6Roman"), for: .normal)
+            self.button2.setTitle("6", for: .normal)
+            self.button8.setImage(UIImage(named: "11Roman"), for: .normal)
+            self.button2.setTitle("11", for: .normal)
+            self.button9.setImage(UIImage(named: "55Roman"), for: .normal)
+            self.button2.setTitle("55", for: .normal)
+            self.button10.setImage(UIImage(named: "150Roman"), for: .normal)
+            self.button2.setTitle("150", for: .normal)
+            self.button11.setImage(UIImage(named: "101Roman"), for: .normal)
+            self.button2.setTitle("101", for: .normal)
+            self.button12.setImage(UIImage(named: "105Roman"), for: .normal)
+            self.button2.setTitle("105", for: .normal)
+        }else if(self.gameMode == "Number"){
+            self.button2.setImage(UIImage(named: "2Number"), for: .normal)
+            self.button3.setImage(UIImage(named: "3Number"), for: .normal)
+            self.button4.setImage(UIImage(named: "4Number"), for: .normal)
+            self.button5.setImage(UIImage(named: "5Number"), for: .normal)
+            self.button6.setImage(UIImage(named: "6Number"), for: .normal)
+            self.button7.setImage(UIImage(named: "7Number"), for: .normal)
+            self.button8.setImage(UIImage(named: "8Number"), for: .normal)
+            self.button9.setImage(UIImage(named: "9Number"), for: .normal)
+            self.button10.setImage(UIImage(named: "10Number"), for: .normal)
+            self.button11.setImage(UIImage(named: "11Number"), for: .normal)
+            self.button12.setImage(UIImage(named: "12Number"), for: .normal)
+            
+        }
+        
+    }
+    @IBAction func onStartButtonClick(_ sender: UIButton){
+        sender.isHidden = true
+        gamePlay()
+    }
+    func gamePlay(){
         if timer == nil {
             timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
                 if self.seconds <= 0 {
@@ -46,6 +106,7 @@ class DiceGameViewController: UIViewController {
     }
     
     func evaluate(){
+        print(timeCount)
         self.timeCount += self.blankTime
         if(self.answer == self.sum){ //correct guess
             self.numCorrect += 1
@@ -91,6 +152,7 @@ class DiceGameViewController: UIViewController {
     
     @IBAction func onSettingsButtonClicked(_ sender: UIButton)
     {
+        self.timer?.invalidate()
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "Settings") as! SettingsTableViewController
         nextViewController.modalPresentationStyle = .fullScreen
@@ -107,7 +169,7 @@ class DiceGameViewController: UIViewController {
     func displayValue(){
         let num = getRandomNumber()
         self.currValue = num
-        let name = String(num)+"Dice"
+        let name = String(num)+self.gameMode
         self.turnCount += 1
         DispatchQueue.main.async{
             self.displayImage?.image = UIImage(named: name)
@@ -132,7 +194,7 @@ class DiceGameViewController: UIViewController {
     var shouldCount = false
     var answer = 0
     var timeCount = 0.0
-    let numDisplays = 3
+    let numDisplays = 20
     
     let dice1 = UIImage(named: "1Dice")
     let dice2 = UIImage(named: "2Dice")
@@ -147,17 +209,26 @@ class DiceGameViewController: UIViewController {
 
     func finishGame()
     {
-        timer?.invalidate()
-        timer = nil
-        let alert = UIAlertController(title: "Time's Up!", message: "Your time is up! You got a score of \(score) points and a mean time of \(self.timeCount / Double(self.numDisplays)). Awesome!", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK, start new game", style: .default, handler: nil))
-
-        self.present(alert, animated: true, completion: nil)
+        self.timer?.invalidate()
+        self.timer = nil
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "Results") as! ResultsTableViewController
+        nextViewController.modalPresentationStyle = .fullScreen
+        nextViewController.correctScore = self.score
+        print(timeCount)
+        nextViewController.thresholdScore = (self.timeCount/Double(self.numDisplays))
+        self.present(nextViewController, animated:true, completion:nil)
         
     }
     
     func getRandomNumber()-> Int{
-        let num = Int.random(in: 1...6)
+        var num = Int.random(in: 1...6)
+        if(self.gameMode == "Roman"){
+            num = symbolsVals[num-1]
+            if(num == 5){
+                num -= 1
+            }
+        }
         return num
     }
 }

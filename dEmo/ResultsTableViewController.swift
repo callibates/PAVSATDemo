@@ -1,5 +1,5 @@
 //
-//  SettingsTableViewController.swift
+//  ResultsTableViewController.swift
 //  dEmo
 //
 //  Created by Calli Bates on 8/03/20.
@@ -8,45 +8,18 @@
 
 import UIKit
 
-class SettingsTableViewController: UITableViewController {
+class ResultsTableViewController: UITableViewController {
+    @IBOutlet weak var correctLabel:UILabel?
+    @IBOutlet weak var thresholdLabel:UILabel?
     
-    var mode = "Dice"
-    @IBOutlet weak var diceSwitch:UISwitch?
-    @IBOutlet weak var numbersSwitch:UISwitch?
-    @IBOutlet weak var symbolsSwitch:UISwitch?
-    
-    @IBAction func diceModeSwitchChanged(_ sender: UISwitch){
-        numbersSwitch?.setOn(false, animated: true)
-        symbolsSwitch?.setOn(false, animated: true)
-        self.mode = "Dice"
-    }
-    @IBAction func numbersModeSwitchChanged(_ sender: UISwitch){
-        symbolsSwitch?.setOn(false, animated: true)
-        diceSwitch?.setOn(false, animated: true)
-        self.mode = "Number"
-    }
-    @IBAction func symbolsModeSwitchChanged(_ sender: UISwitch){
-        numbersSwitch?.setOn(false, animated: true)
-        diceSwitch?.setOn(false, animated: true)
-        self.mode = "Roman"
-    }
-    @IBAction func saveButtonClicked(_ sender: UIButton){
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "Game") as! DiceGameViewController
-        nextViewController.modalPresentationStyle = .fullScreen
-        nextViewController.gameMode = mode
-        self.present(nextViewController, animated:true, completion:nil)
-    }
-    @IBAction func backButtonClicked(_ sender: UIButton){
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "Game") as! DiceGameViewController
-        nextViewController.modalPresentationStyle = .fullScreen
-        self.present(nextViewController, animated:true, completion:nil)
-    }
+    var thresholdScore:Double = 0.0
+    var correctScore:Int = 0
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
-
+        thresholdLabel?.text = String(thresholdScore)
+        correctLabel?.text = String(correctScore)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -55,15 +28,20 @@ class SettingsTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
+    @IBAction func restartButtonClicked(_ sender: UIButton){
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "Game") as! DiceGameViewController
+        nextViewController.modalPresentationStyle = .fullScreen
+        self.present(nextViewController, animated:true, completion:nil)
+    }
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 3
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 4
+        return 1
     }
 
     /*
@@ -92,7 +70,7 @@ class SettingsTableViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
     */
 

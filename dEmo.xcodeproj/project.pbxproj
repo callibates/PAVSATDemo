@@ -16,6 +16,7 @@
 		2E5BAB1623A4AF1D00CA9A41 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5BAB1523A4AF1D00CA9A41 /* String.swift */; };
 		2E5BAB1823AF1F9C00CA9A41 /* DIceGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5BAB1723AF1F9C00CA9A41 /* DIceGameViewController.swift */; };
 		F72F5CDA2414955C00BAA804 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72F5CD92414955C00BAA804 /* SettingsTableViewController.swift */; };
+		F72F5CE02414CF9100BAA804 /* ResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72F5CDF2414CF9100BAA804 /* ResultsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		2E5BAB1523A4AF1D00CA9A41 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		2E5BAB1723AF1F9C00CA9A41 /* DIceGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIceGameViewController.swift; sourceTree = "<group>"; };
 		F72F5CD92414955C00BAA804 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		F72F5CDF2414CF9100BAA804 /* ResultsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				2E5BAB0B23A4A06800CA9A41 /* Info.plist */,
 				2E5BAB1523A4AF1D00CA9A41 /* String.swift */,
 				F72F5CD92414955C00BAA804 /* SettingsTableViewController.swift */,
+				F72F5CDF2414CF9100BAA804 /* ResultsTableViewController.swift */,
 			);
 			path = dEmo;
 			sourceTree = "<group>";
@@ -148,6 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E5BAB0223A4A06700CA9A41 /* GameViewController.swift in Sources */,
+				F72F5CE02414CF9100BAA804 /* ResultsTableViewController.swift in Sources */,
 				2E5BAAFE23A4A06700CA9A41 /* AppDelegate.swift in Sources */,
 				F72F5CDA2414955C00BAA804 /* SettingsTableViewController.swift in Sources */,
 				2E5BAB1823AF1F9C00CA9A41 /* DIceGameViewController.swift in Sources */,
