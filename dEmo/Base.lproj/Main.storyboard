@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="HK2-fd-4Mi">
     <device id="ipad10_5" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
+        <deployment version="4352" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -10,7 +10,7 @@
         <!--Settings-->
         <scene sceneID="n0u-u8-E4I">
             <objects>
-                <tableViewController storyboardIdentifier="Settings" title="Settings" id="9D3-Ks-xdt" customClass="SettingsTableViewController" customModule="dEmo" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Settings" title="Settings" id="9D3-Ks-xdt" customClass="SettingsTableViewController" customModule="PATSAV_Game" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="xJf-VA-GTl">
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="784"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -149,7 +149,7 @@
         <!--DIce Game View Controller-->
         <scene sceneID="Mfz-sc-6Y8">
             <objects>
-                <viewController storyboardIdentifier="Game" title="DIce Game View Controller" id="HK2-fd-4Mi" customClass="DiceGameViewController" customModule="dEmo" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Game" title="DIce Game View Controller" id="HK2-fd-4Mi" customClass="DiceGameViewController" customModule="PATSAV_Game" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eyl-uG-tDW"/>
                         <viewControllerLayoutGuide type="bottom" id="jHC-tW-i47"/>
@@ -362,7 +362,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="DkP-bS-BbS"/>
                     <connections>
-                        <outlet property="button10" destination="8uz-Ss-raT" id="7U1-Ek-Msk"/>
+                        <outlet property="button10" destination="8uz-Ss-raT" id="920-t1-tdH"/>
                         <outlet property="button11" destination="VZO-qP-zZb" id="7yp-6C-NPg"/>
                         <outlet property="button12" destination="L93-sl-La3" id="Eq2-23-vzW"/>
                         <outlet property="button2" destination="4q6-s8-aL4" id="qnU-xU-N5W"/>
@@ -383,7 +383,7 @@
         <!--Results-->
         <scene sceneID="w3J-l2-37I">
             <objects>
-                <tableViewController storyboardIdentifier="Results" title="Results" id="KvN-ME-AOr" customClass="ResultsTableViewController" customModule="dEmo" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Results" title="Results" id="KvN-ME-AOr" customClass="ResultsTableViewController" customModule="PATSAV_Game" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="4wd-4v-JzE">
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="784"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -474,18 +474,18 @@
         </scene>
     </scenes>
     <resources>
-        <image name="10Dice" width="204" height="205"/>
-        <image name="11Dice" width="207" height="206"/>
-        <image name="12Dice" width="204" height="206"/>
-        <image name="2Dice" width="205" height="205"/>
-        <image name="3Dice" width="209" height="207"/>
-        <image name="4Dice" width="209" height="207"/>
-        <image name="5Dice" width="206" height="205"/>
-        <image name="6Dice" width="204" height="204"/>
-        <image name="7Dice" width="204" height="204"/>
-        <image name="8Dice" width="208" height="205"/>
-        <image name="9Dice" width="204" height="202"/>
-        <image name="NoDice" width="205" height="205"/>
+        <image name="10Dice" width="1086" height="1082"/>
+        <image name="11Dice" width="1086" height="1082"/>
+        <image name="12Dice" width="1086" height="1082"/>
+        <image name="2Dice" width="1086" height="1082"/>
+        <image name="3Dice" width="1086" height="1082"/>
+        <image name="4Dice" width="1086" height="1082"/>
+        <image name="5Dice" width="1086" height="1082"/>
+        <image name="6Dice" width="1086" height="1082"/>
+        <image name="7Dice" width="1086" height="1082"/>
+        <image name="8Dice" width="1086" height="1082"/>
+        <image name="9Dice" width="1086" height="1082"/>
+        <image name="NoDice" width="1086" height="1082"/>
         <image name="background" width="375" height="667"/>
         <image name="button_start" width="253" height="113"/>
         <image name="settings" width="980" height="980"/>
