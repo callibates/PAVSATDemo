@@ -6,20 +6,28 @@
 //  Copyright © 2020 Calli Bates. All rights reserved.
 //
 
-import UIKit
+import UIKit//Library.
 
-class ResultsTableViewController: UITableViewController {
-    @IBOutlet weak var correctLabel:UILabel?
-    @IBOutlet weak var thresholdLabel:UILabel?
+class ResultsTableViewController: UITableViewController{//New structure for results table.
+    @IBOutlet weak var correctLabel:UILabel?//Number of correct answers label.
+    @IBOutlet weak var missedLabel:UILabel?//Threshold score label.
+    @IBOutlet weak var thresholdLabel:UILabel?//Threshold score label.
     
-    var thresholdScore:Double = 0.0
-    var correctScore:Int = 0
+    var correctScore:Float = 0.0//Initialises total correct score.
+    var missedAnswers:Int = 0//Initialises number of missed answers.
+    var thresholdScore:Double = 0.0//Initialises threshold score.
+    var stdDeviation:Double = 0.0
+    var mean: Double = 0.0
+    
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        tableView.tableFooterView = UIView()
-        thresholdLabel?.text = String(thresholdScore)
-        correctLabel?.text = String(correctScore)
+    override func viewDidLoad()//DEFINITION of 'view did load' function.
+    {
+        super.viewDidLoad()//CALLS view did load function.
+        tableView.tableFooterView = UIView()//CALLS UIView function and saves to table view.
+        correctLabel?.text = String(format: "%.02f %%", correctScore)//String(format: "%02d", min)Assigns total number correct to label.
+        missedLabel?.text = String(missedAnswers)//Assigns total number missed to label.
+        thresholdLabel?.text = String(thresholdScore)//Assigns threshold score to label.
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -28,18 +36,19 @@ class ResultsTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-    @IBAction func restartButtonClicked(_ sender: UIButton){
+    @IBAction func restartButtonClicked(_ sender: UIButton){//DEFINITION of restart function.
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "Game") as! DiceGameViewController
-        nextViewController.modalPresentationStyle = .fullScreen
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "Test") as! TestViewController//Use dice test view controller program.
+        nextViewController.modalPresentationStyle = .fullScreen//iPad output.
         self.present(nextViewController, animated:true, completion:nil)
     }
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    
+    override func numberOfSections(in tableView: UITableView) -> Int{
         // #warning Incomplete implementation, return the number of sections
-        return 3
+        return 4
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         // #warning Incomplete implementation, return the number of rows
         return 1
     }
