@@ -1,0 +1,102 @@
+
+/* Class = "UIButton"; normalTitle = "1"; ObjectID = "4q6-s8-aL4"; */
+"4q6-s8-aL4.normalTitle" = "1";
+
+/* Class = "UITableViewSection"; headerTitle = "Percentage Correct"; ObjectID = "5cc-33-ZPI"; */
+"5cc-33-ZPI.headerTitle" = "Percentage Correct";
+
+/* Class = "UITableViewSection"; headerTitle = "Test Selection"; ObjectID = "5i8-gG-NVU"; */
+"5i8-gG-NVU.headerTitle" = "Test Selection";
+
+/* Class = "UILabel"; text = "Numbers Mode"; ObjectID = "7ve-Cq-qVS"; */
+"7ve-Cq-qVS.text" = "Numbers Mode";
+
+/* Class = "UIButton"; normalTitle = "9"; ObjectID = "8uz-Ss-raT"; */
+"8uz-Ss-raT.normalTitle" = "9";
+
+/* Class = "UITableViewController"; title = "Settings"; ObjectID = "9D3-Ks-xdt"; */
+"9D3-Ks-xdt.title" = "Settings";
+
+/* Class = "UITableViewSection"; headerTitle = "Threshold Value (seconds)"; ObjectID = "CaP-ea-3ga"; */
+"CaP-ea-3ga.headerTitle" = "Threshold Value (seconds)";
+
+/* Class = "UIButton"; normalTitle = "1"; ObjectID = "GDO-t0-OQT"; */
+"GDO-t0-OQT.normalTitle" = "1";
+
+/* Class = "UIButton"; normalTitle = "Back"; ObjectID = "Gaa-Hw-lSS"; */
+"Gaa-Hw-lSS.normalTitle" = "Back";
+
+/* Class = "UIViewController"; title = "Test View Controller"; ObjectID = "HK2-fd-4Mi"; */
+"HK2-fd-4Mi.title" = "Test View Controller";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "HcZ-JY-tSI"; */
+"HcZ-JY-tSI.text" = "0";
+
+/* Class = "UIButton"; normalTitle = "3"; ObjectID = "JPg-xj-Uhg"; */
+"JPg-xj-Uhg.normalTitle" = "3";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "KOJ-VL-rpS"; */
+"KOJ-VL-rpS.text" = "0";
+
+/* Class = "UITableViewController"; title = "Results"; ObjectID = "KvN-ME-AOr"; */
+"KvN-ME-AOr.title" = "Results";
+
+/* Class = "UIButton"; normalTitle = "8"; ObjectID = "Ncy-LG-Lgn"; */
+"Ncy-LG-Lgn.normalTitle" = "8";
+
+/* Class = "UIButton"; normalTitle = "2"; ObjectID = "Ner-3J-ynZ"; */
+"Ner-3J-ynZ.normalTitle" = "2";
+
+/* Class = "UIButton"; normalTitle = "2"; ObjectID = "ObF-ig-Xqs"; */
+"ObF-ig-Xqs.normalTitle" = "2";
+
+/* Class = "UIButton"; normalTitle = "3"; ObjectID = "PvE-y3-09Q"; */
+"PvE-y3-09Q.normalTitle" = "3";
+
+/* Class = "UILabel"; text = "Symbols Mode"; ObjectID = "Tdo-iS-l2X"; */
+"Tdo-iS-l2X.text" = "Symbols Mode";
+
+/* Class = "UIButton"; normalTitle = "Restart"; ObjectID = "TjF-hL-ZHj"; */
+"TjF-hL-ZHj.normalTitle" = "Restart";
+
+/* Class = "UIButton"; normalTitle = "Settings"; ObjectID = "U2l-AY-EpW"; */
+"U2l-AY-EpW.normalTitle" = "Settings";
+
+/* Class = "UIButton"; normalTitle = "10"; ObjectID = "VZO-qP-zZb"; */
+"VZO-qP-zZb.normalTitle" = "10";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "bZV-3D-TfL"; */
+"bZV-3D-TfL.text" = "0";
+
+/* Class = "UILabel"; text = "Dice Mode"; ObjectID = "cXy-Ac-ie2"; */
+"cXy-Ac-ie2.text" = "Dice Mode";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "dSG-d6-BL3"; */
+"dSG-d6-BL3.normalTitle" = "Save";
+
+/* Class = "UIButton"; normalTitle = "6"; ObjectID = "fAp-Vs-fEl"; */
+"fAp-Vs-fEl.normalTitle" = "6";
+
+/* Class = "UIButton"; normalTitle = "4"; ObjectID = "jBF-Bq-Ei7"; */
+"jBF-Bq-Ei7.normalTitle" = "4";
+
+/* Class = "UITableViewSection"; headerTitle = "No Answer Given"; ObjectID = "jv4-1q-O3J"; */
+"jv4-1q-O3J.headerTitle" = "No Answer Given";
+
+/* Class = "UIButton"; normalTitle = "5"; ObjectID = "nRx-p3-P1J"; */
+"nRx-p3-P1J.normalTitle" = "5";
+
+/* Class = "UIButton"; normalTitle = "5"; ObjectID = "nm3-rn-2Is"; */
+"nm3-rn-2Is.normalTitle" = "5";
+
+/* Class = "UIButton"; normalTitle = "6"; ObjectID = "q97-Dk-Z3Z"; */
+"q97-Dk-Z3Z.normalTitle" = "6";
+
+/* Class = "UIButton"; normalTitle = "Settings"; ObjectID = "rNA-nx-m86"; */
+"rNA-nx-m86.normalTitle" = "Settings";
+
+/* Class = "UIButton"; normalTitle = "4"; ObjectID = "urA-2X-jxg"; */
+"urA-2X-jxg.normalTitle" = "4";
+
+/* Class = "UIButton"; normalTitle = "7"; ObjectID = "wdI-f1-1Df"; */
+"wdI-f1-1Df.normalTitle" = "7";

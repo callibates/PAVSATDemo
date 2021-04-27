@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,7 +14,8 @@
 		2E5BAB0723A4A06800CA9A41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E5BAB0623A4A06800CA9A41 /* Assets.xcassets */; };
 		2E5BAB0A23A4A06800CA9A41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E5BAB0823A4A06800CA9A41 /* LaunchScreen.storyboard */; };
 		2E5BAB1623A4AF1D00CA9A41 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5BAB1523A4AF1D00CA9A41 /* String.swift */; };
-		2E5BAB1823AF1F9C00CA9A41 /* DIceGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5BAB1723AF1F9C00CA9A41 /* DIceGameViewController.swift */; };
+		2E5BAB1823AF1F9C00CA9A41 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5BAB1723AF1F9C00CA9A41 /* TestViewController.swift */; };
+		E34A20A6262D5CB500692D31 /* RatingScalesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34A20A5262D5CB500692D31 /* RatingScalesView.swift */; };
 		F72F5CDA2414955C00BAA804 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72F5CD92414955C00BAA804 /* SettingsTableViewController.swift */; };
 		F72F5CE02414CF9100BAA804 /* ResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72F5CDF2414CF9100BAA804 /* ResultsTableViewController.swift */; };
 /* End PBXBuildFile section */
@@ -29,7 +30,9 @@
 		2E5BAB0923A4A06800CA9A41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2E5BAB0B23A4A06800CA9A41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2E5BAB1523A4AF1D00CA9A41 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
-		2E5BAB1723AF1F9C00CA9A41 /* DIceGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIceGameViewController.swift; sourceTree = "<group>"; };
+		2E5BAB1723AF1F9C00CA9A41 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		E34A20A5262D5CB500692D31 /* RatingScalesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingScalesView.swift; sourceTree = "<group>"; };
+		E34A20AB262EA3AC00692D31 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		F72F5CD92414955C00BAA804 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		F72F5CDF2414CF9100BAA804 /* ResultsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -67,7 +70,7 @@
 				2E5BAAFD23A4A06700CA9A41 /* AppDelegate.swift */,
 				2E5BAAFF23A4A06700CA9A41 /* SceneDelegate.swift */,
 				2E5BAB0123A4A06700CA9A41 /* GameViewController.swift */,
-				2E5BAB1723AF1F9C00CA9A41 /* DIceGameViewController.swift */,
+				2E5BAB1723AF1F9C00CA9A41 /* TestViewController.swift */,
 				2E5BAB0323A4A06700CA9A41 /* Main.storyboard */,
 				2E5BAB0623A4A06800CA9A41 /* Assets.xcassets */,
 				2E5BAB0823A4A06800CA9A41 /* LaunchScreen.storyboard */,
@@ -75,6 +78,7 @@
 				2E5BAB1523A4AF1D00CA9A41 /* String.swift */,
 				F72F5CD92414955C00BAA804 /* SettingsTableViewController.swift */,
 				F72F5CDF2414CF9100BAA804 /* ResultsTableViewController.swift */,
+				E34A20A5262D5CB500692D31 /* RatingScalesView.swift */,
 			);
 			path = dEmo;
 			sourceTree = "<group>";
@@ -115,7 +119,7 @@
 				};
 			};
 			buildConfigurationList = 2E5BAAF523A4A06700CA9A41 /* Build configuration list for PBXProject "dEmo" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 11.4";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -154,7 +158,8 @@
 				F72F5CE02414CF9100BAA804 /* ResultsTableViewController.swift in Sources */,
 				2E5BAAFE23A4A06700CA9A41 /* AppDelegate.swift in Sources */,
 				F72F5CDA2414955C00BAA804 /* SettingsTableViewController.swift in Sources */,
-				2E5BAB1823AF1F9C00CA9A41 /* DIceGameViewController.swift in Sources */,
+				2E5BAB1823AF1F9C00CA9A41 /* TestViewController.swift in Sources */,
+				E34A20A6262D5CB500692D31 /* RatingScalesView.swift in Sources */,
 				2E5BAB1623A4AF1D00CA9A41 /* String.swift in Sources */,
 				2E5BAB0023A4A06700CA9A41 /* SceneDelegate.swift in Sources */,
 			);
@@ -167,6 +172,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				2E5BAB0423A4A06700CA9A41 /* Base */,
+				E34A20AB262EA3AC00692D31 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -300,16 +306,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9JQAAS5GM4;
+				DEVELOPMENT_TEAM = Y9M62L886G;
 				INFOPLIST_FILE = dEmo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = PATSAVDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = ASCTestsDemo;
 				PRODUCT_NAME = "PATSAV Game";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -320,16 +327,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9JQAAS5GM4;
+				DEVELOPMENT_TEAM = Y9M62L886G;
 				INFOPLIST_FILE = dEmo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = PATSAVDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = ASCTestsDemo;
 				PRODUCT_NAME = "PATSAV Game";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;

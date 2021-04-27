@@ -6,46 +6,52 @@
 //  Copyright © 2020 Calli Bates. All rights reserved.
 //
 
-import UIKit
+import UIKit//Library.
 
-class SettingsTableViewController: UITableViewController {
+class SettingsTableViewController: UITableViewController{//New structure for settings of results table.
+    var mode = "Dice"//Default is "Dice" mode.
+    @IBOutlet weak var diceSwitch:UISwitch?//Dice
+    @IBOutlet weak var numbersSwitch:UISwitch?//Numbers
+    @IBOutlet weak var symbolsSwitch:UISwitch?//Symbols
     
-    var mode = "Dice"
-    @IBOutlet weak var diceSwitch:UISwitch?
-    @IBOutlet weak var numbersSwitch:UISwitch?
-    @IBOutlet weak var symbolsSwitch:UISwitch?
-    
-    @IBAction func diceModeSwitchChanged(_ sender: UISwitch){
-        numbersSwitch?.setOn(false, animated: true)
+    @IBAction func diceModeSwitchChanged(_ sender: UISwitch)//IBAction: the method that you can connect to from storyboard.
+    {
+        numbersSwitch?.setOn(false, animated: true)//Switch controls.
         symbolsSwitch?.setOn(false, animated: true)
-        self.mode = "Dice"
+        self.mode = "Dice"//Dice mode...
     }
-    @IBAction func numbersModeSwitchChanged(_ sender: UISwitch){
+    @IBAction func numbersModeSwitchChanged(_ sender: UISwitch)
+    {
         symbolsSwitch?.setOn(false, animated: true)
         diceSwitch?.setOn(false, animated: true)
-        self.mode = "Number"
+        self.mode = "Number"//Number mode.
     }
-    @IBAction func symbolsModeSwitchChanged(_ sender: UISwitch){
+    @IBAction func symbolsModeSwitchChanged(_ sender: UISwitch)
+    {
         numbersSwitch?.setOn(false, animated: true)
         diceSwitch?.setOn(false, animated: true)
-        self.mode = "Roman"
+        self.mode = "Symbol"//Symbols mode.
     }
-    @IBAction func saveButtonClicked(_ sender: UIButton){
+    @IBAction func saveButtonClicked(_ sender: UIButton)//Registers mode.
+    {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "Game") as! DiceGameViewController
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "Test") as! TestViewController
         nextViewController.modalPresentationStyle = .fullScreen
-        nextViewController.gameMode = mode
+        nextViewController.testMode = mode
         self.present(nextViewController, animated:true, completion:nil)
     }
-    @IBAction func backButtonClicked(_ sender: UIButton){
+    @IBAction func backButtonClicked(_ sender: UIButton)//Registers when 'back' is requested.
+    {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "Game") as! DiceGameViewController
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "Test") as! TestViewController
         nextViewController.modalPresentationStyle = .fullScreen
         self.present(nextViewController, animated:true, completion:nil)
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        tableView.tableFooterView = UIView()
+    
+    override func viewDidLoad()//Failsafe function...
+    {
+        super.viewDidLoad()//CALLS view did load function
+        tableView.tableFooterView = UIView()//CALLS UIView function and saves to tableview.
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -56,12 +62,14 @@ class SettingsTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int
+    {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
         // #warning Incomplete implementation, return the number of rows
         return 4
     }

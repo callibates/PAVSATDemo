@@ -6,17 +6,17 @@
 //  Copyright © 2019 Calli Bates. All rights reserved.
 //
 
-import UIKit
+import UIKit//Library
 
-@available(iOS 13.0, *)
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+@available(iOS 13.0, *)//Compatability information.
+@UIApplicationMain//Main program...
+class AppDelegate: UIResponder, UIApplicationDelegate {//Define app class.
 
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        return true
+        return true//Defines test-launch function - starts with any key, returns TRUE
     }
 
     // MARK: UISceneSession Lifecycle
