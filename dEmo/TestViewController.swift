@@ -76,8 +76,51 @@ class TestViewController: UIViewController {//Declares dice view structure...
     
     @IBAction func onStartButtonClick(_ sender: UIButton){//Start button function...
         sender.isHidden = true
-        testBegins()//CALLS test begins function.
+        preTest()
+        //testBegins()//CALLS test begins function.
+        
     }//Function ends.
+    
+    func preTest()
+        {
+            if pretimer == nil {//If the timer is set at nil ...
+                pretimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { pretimer in
+                    if self.seconds <= 0 {
+                            if(self.numReversals == 4){
+                                //Calls 'finish test' function in gameViewController
+                                print("Pre-test complete")//Prints to console.
+                                self.shouldCount = true
+                                self.score = 0
+                                self.turnCount = 0
+                                self.timeCount = 0.0
+                                self.numReversals = 0
+                                self.pretimer?.invalidate()
+                                print("Fourth reversal achieved during the correct answer condition - Test starts now!")
+                                self.testBegins()
+                        }//Length of test duration condition scope ends.
+                        
+                        if self.displayingValue {
+                            self.displayBlank()//Calls displayBlank function in line 188.
+                            self.displayingValue = false
+                            self.seconds = self.blankTime//ISI duration saved to seconds.
+                        }//if self.displayingValue condition ends.
+                        else{
+                            self.evaluate()//CALLS evaluate function.
+                            self.prevValue = self.currValue//Sets current value as previous value.
+                            self.displayValue()//CALLS display value function.
+                            self.numTrials+=1
+                            self.sum = self.prevValue + self.currValue//Correct answer is previous plus current value, saved as 'sum'
+                            self.seconds = self.displayTime//Display time saved to 'seconds'.
+                            self.displayingValue = true//Display next value
+                        }//else ends.
+                    }//if self.seconds <= 0 condition scope ends.
+                    else {//if timer != nil...
+                        self.seconds -= 0.1//If seconds are greater that 0, reduce seconds variable until the condition is met.
+                    }//else ends.
+                }//If seconds <=0 condition scope ends.
+            }//if timer = nil condition scope ends.
+            
+        }//DEFINITION of test begins function ends.
     
     func testBegins()
     {//Definition of test begins function.
@@ -86,8 +129,9 @@ class TestViewController: UIViewController {//Declares dice view structure...
                 if self.seconds <= 0 {//As the timer counts up in 0.1second intervals...
                     //if(self.turnCount >= self.numTrials){//Test continues until the number of required displays is reached
                         if(self.numReversals == 5){
-                        self.finishTest()//Calls 'finish test' function in gameViewController
-                        print("Test is complete!")//Prints to console.
+                            self.timer?.invalidate()
+                            print("Reversals met...moving into cool down")
+                            self.coolDown()//Calls 'finish test' function in gameViewController
                     }//Length of test duration condition scope ends.
                     
                     if self.displayingValue {
@@ -113,9 +157,40 @@ class TestViewController: UIViewController {//Declares dice view structure...
         
     }//DEFINITION of test begins function ends.
     
+    func coolDown()
+        {
+            var coolDownTurns = 4
+            if cooltimer == nil {//If the timer is set at nil ...
+                cooltimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { cooltimer in
+                    if self.seconds <= 0 {
+                        coolDownTurns -= 1
+                        if coolDownTurns == 0{
+                            self.cooltimer?.invalidate()
+                            self.finishTest()
+                        }
+                        if self.displayingValue {
+                            self.displayBlank()//Calls displayBlank function in line 188.
+                            self.displayingValue = false
+                            self.seconds = self.blankTime//ISI duration saved to seconds.
+                        }//if self.displayingValue condition ends.
+                        else{
+                            self.prevValue = self.currValue//Sets current value as previous value.
+                            self.displayValue()//CALLS display value function.
+                            self.numTrials+=1
+                            self.sum = self.prevValue + self.currValue//Correct answer is previous plus current value, saved as 'sum'
+                            self.seconds = self.displayTime//Display time saved to 'seconds'.
+                            self.displayingValue = true//Display next value
+                        }//else ends.
+                    }//if self.seconds <= 0 condition scope ends.
+                    else {//if timer != nil...
+                        self.seconds -= 0.1//If seconds are greater that 0, reduce seconds variable until the condition is met.
+                    }//else ends.
+                }//If seconds <=0 condition scope ends.
+            }//if timer = nil condition scope ends.
+            
+        }//DEFINITION of test begins function ends.
+    
     func evaluate(){//DEFINITION of answer-evaluation function.
-        //print("Current timer reading: ")
-        //print(timeCount)//Print time-count to console.
         self.timeCount += self.blankTime//The time-count is set as time-count plus ISI duration (ready to calculate the average).
         
         if(self.answer == self.sum && self.numTrials > 0){//If user input is CORRECT...
@@ -136,13 +211,6 @@ class TestViewController: UIViewController {//Declares dice view structure...
                 self.score += 1//add 1 to the score.
                 }
         
-            if(self.numReversals == 4){//Resets all scores on the 4th reversal
-                self.shouldCount = true
-                self.score = 0
-                self.turnCount = 0
-                self.timeCount = 0.0
-                print("Fourth reversal achieved during the correct answer condition - Test starts now!")
-                }
             
             if(self.numCorrect == 3){//When there are three correct answers...
                 self.blankTime -= 0.2//Reduce the ISI by .2 seconds
@@ -154,6 +222,7 @@ class TestViewController: UIViewController {//Declares dice view structure...
         else if(self.answer < self.sum || self.answer > self.sum){//For an INCORRECT answer (but not an omission)...
             self.numCorrect = 0//Reset 'number correct in a row' to zero.
             if(self.numWrong == 0){//If it's the first incorrect answer...
+                self.numWrong += 1//Add 1 to the counter of wrong answers
                 self.numReversals += 1//Add 1 to the reversals count
                 print("Wrong answer!")
                 print("Current number of reversals (after an incorrect answer): ")
@@ -161,21 +230,12 @@ class TestViewController: UIViewController {//Declares dice view structure...
                 }//END of ELSE IF condition for incorrect answer.
         
         else{//For omssions (no answer selected)...
+            self.numCorrect = 0
             self.missedResponse += 1
             print("Current number of missed responses: ")
             print(self.missedResponse)
         }//END of missing response condition.
             
-        if(self.numReversals == 4){//On the 4th reversal, reset the counters to start test proper.
-                self.shouldCount = true//Keep scores when condition met.
-                //self.score = 0
-               // self.turnCount = 0
-               // self.timeCount = 0.0
-               // self.numTrials = 0
-                print("Fourth reversal achieved for line 169 - should count is TRUE")
-        }//End of fourth reversal reset.
-            
-        self.numWrong += 1//Add 1 to the counter of wrong answers
         self.blankTime += 0.2//And increase the ISI by .2 seconds.
         print("...an increase in ISI of 200 ms has been applied!")
         }
@@ -224,6 +284,8 @@ class TestViewController: UIViewController {//Declares dice view structure...
     var displayingValue = false//Inialises displaying value variable (set as false).
     let displayTime = 0.5//Declares a constant .5 seconds display time.
     var timer:Timer?//Initialises a timer.
+    var pretimer:Timer?
+    var cooltimer:Timer?
     var seconds = 2.0//Initialises seconds, set at 2 seconds.
     var prevValue = 0//Initialises a previous value variable.
     var currValue = 0//Initialises a current value variable.
